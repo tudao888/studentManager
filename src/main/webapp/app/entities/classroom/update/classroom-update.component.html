@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-classroom-heading"
+        data-cy="ClassroomCreateUpdateHeading"
+        jhiTranslate="studentManagerApp.classroom.home.createOrEditLabel"
+      >
+        Create or edit a Classroom
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="studentManagerApp.classroom.nameOfSubject" for="field_nameOfSubject"
+            >Name Of Subject</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nameOfSubject"
+            id="field_nameOfSubject"
+            data-cy="nameOfSubject"
+            formControlName="nameOfSubject"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="studentManagerApp.classroom.line" for="field_line">Line</label>
+          <select class="form-control" name="line" formControlName="line" id="field_line" data-cy="line">
+            <option [ngValue]="null">{{ 'studentManagerApp.Line.null' | translate }}</option>
+            <option *ngFor="let line of lineValues" [value]="line">{{ 'studentManagerApp.Line.' + line | translate }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+
+entity Student {
+	firstName String,
+    lastName String,
+    email String,
+    phone String,
+    dateOfBirth Instant,
+}
+
+entity Classroom {
+	nameOfSubject String,
+    line Line
+}
+
+enum Line {
+	MORNING,
+    AFTERNOON,
+    EVENING
+}
+
+relationship ManyToMany {
+	Student to Classroom
+}
+
+
+// Set pagination options
+paginate Student, Classroom with infinite-scroll
+paginate Student, Classroom with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service Student with serviceImpl
+service Classroom with serviceImpl

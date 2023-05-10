@@ -1,0 +1,10 @@
+{
+  "studentManagerApp": {
+    "Line": {
+      "null": "",
+      "MORNING": "MORNING",
+      "AFTERNOON": "AFTERNOON",
+      "EVENING": "EVENING"
+    }
+  }
+}

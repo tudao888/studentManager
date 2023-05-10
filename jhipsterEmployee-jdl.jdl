@@ -1,0 +1,24 @@
+
+entity Employee {
+	firstName String,
+    lastName String,
+    email String,
+    phone String,
+    dateOfBirth Instant
+}
+
+entity Company {
+	name String,
+    line Line
+}
+
+enum Line {
+	MORNING,
+    AFTERNOON,
+    EVENING
+}
+
+relationship ManyToMany {
+	Employee to Company
+}
+

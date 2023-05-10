@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20230508034849",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "classroom",
+  "fields": [
+    {
+      "fieldName": "nameOfSubject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "line",
+      "fieldType": "Line",
+      "fieldValues": "MORNING,AFTERNOON,EVENING"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Classroom",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "classroom",
+      "ownerSide": false,
+      "relationshipName": "student",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
